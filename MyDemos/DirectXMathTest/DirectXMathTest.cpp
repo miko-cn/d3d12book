@@ -139,6 +139,35 @@ void XMVectorFloatError()
     cout << "XMVector3NearEqual(ln, l1, Epsilon) == " << res << "\n";
 }
 
+void XMVectorMath()
+{
+    cout << "--- XMVectorMath ---" << "\n";
+
+    cout.setf(ios_base::boolalpha); // 将 bool 输出为 true or false
+
+    XMVECTOR p = XMVectorSet(2.0f, 0.5f, 1.0f, 0.0f);
+    XMVECTOR q = XMVectorSet(2.0f, -0.5f, 0.5f, 0.1f);
+    XMVECTOR u = XMVectorSet(1.0f, 2.0f, 4.0f, 8.0f);
+    XMVECTOR v = XMVectorSet(-2.0f, 1.0f, -3.0f, 2.5f);
+    XMVECTOR w = XMVectorSet(0.0f, XM_PIDIV4, XM_PIDIV2, XM_PI);
+
+    cout << "XMVectorAbs" << v << " = " << XMVectorAbs(v) << "\n";
+    cout << "XMVectorCos" << w << " = " << XMVectorCos(w) << "\n";
+    cout << "XMVectorLog" << u << " = " << XMVectorLog(u) << "\n";
+    cout << "XMVectorExp" << p << " = " << XMVectorExp(p) << "\n";
+
+    cout << "XMVectorPow" << u << p << " = " << XMVectorPow(u, p) << "\n";
+    cout << "XMVectorSqrt" << u << " = " << XMVectorSqrt(u) << "\n";
+
+    cout << "XMVectorSwizzle" << u << "(2, 2, 1, 3) = " << XMVectorSwizzle(u, 2, 2, 1, 3) << "\n";
+    cout << "XMVectorSwizzle" << u << "(2, 1, 0, 3) = " << XMVectorSwizzle(u, 2, 1, 0, 3) << "\n";
+
+    cout << "XMVectorMultiply" << u << v << " = " << XMVectorMultiply(u, v) << "\n";
+    cout << "XMVectorSaturate" << q << " = " << XMVectorSaturate(q) << "\n";
+    cout << "XMVectorMin" << p << v << " = " << XMVectorMin(p, v) << "\n";
+    cout << "XMVectorMax" << p << v << " = " << XMVectorMax(p, v) << "\n";
+}
+
 int main()
 {
     cout.setf(ios_base::boolalpha);
@@ -155,6 +184,8 @@ int main()
     XMVectorFunc();
 
     XMVectorFloatError();
+
+    XMVectorMath();
     
     return 0;
 }
